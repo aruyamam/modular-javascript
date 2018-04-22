@@ -28,4 +28,19 @@ var AppTester = (function () {
     ImagesInc_LoggingHandler.logError('could not access the property');
   }
 
+  // *** testing module cloning ***
+  // creating a clone object
+  CloneModule = TestModule.clone(true);
+  // displays 'This property will be cloned'
+  console.log(CloneModule.testFunc());
+  // displays 'the private value has been changed'
+
+  console.log(CloneModule.getPrivateValue());
+
+  console.log(TestModule.changePrivateVar());
+  // displays 'the private value has been changed'
+  console.log(CloneModule.getPrivateValue());
+
+  console.log(CloneModule.testFunc());
+
 })();

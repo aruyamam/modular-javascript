@@ -1,3 +1,36 @@
+var ImagesInc_Utilitizes = (function () {
+  var clone = function clone(deep) {
+    // create an instance of the object
+    var newClonedObj = new this.constructor();
+
+    // copy all properties from the original object
+    for (var property in this) {
+      // if deep flag is not set, just do a shallow copy of properties
+      if (!deep) {
+        if (this.hasOwnProperty(property)) {
+          newClonedObj[property] = this[property];
+        }
+      }
+      // to make a deep copy, call the function recursively
+      else if (typeof this[property] === 'object' && this.hasOwnProperty(property)) {
+        newClonedObj[property] = this[property].clone(deep);
+      }
+      else if (this.hasOwnProperty(property)) {
+        // just copy properties for non objects
+        newClonedObj[property] = this[property];
+      }
+    }
+
+    return newClonedObj;
+  };
+
+  // attch the clone function to Object prototype
+  var initialize = (function () {
+    Object.prototype.clone = clone;
+  })();
+
+})();
+
 var ImagesInc_GlobalData = (function (module) {
 
   var headerContainerDef = {
@@ -69,4 +102,31 @@ var ImagesInc_PageUpdater = (function () {
     }
   };
 
+})();
+
+
+var TestModule = (function () {
+  var privateTestValue = 'Test for cloning, this property is hidden';
+
+  return {
+    publicTestValue: privateTestValue + ' but now showing it publicly',
+
+    testFunc: function () {
+      var anotherTest = 'This property will be cloned';
+
+      return anotherTest;
+    },
+
+    getPrivateValue: function () {
+      return privateTestValue;
+    },
+
+    changePrivateVar: function () {
+      privateTestValue = 'the private value has been changed';
+
+      return privateTestValue;
+    },
+
+    testArray: [1, 2, 3]
+  };
 })();
