@@ -7,21 +7,44 @@
   <link rel="stylesheet" href="./css/app.css">
 </head>
 <body>
-  <header class="headerContainerClass" id="headerContainer" role="banner">
+
+  <header class="headerContainer" role="banner">
   </header>
 
-  <main class="clearfix mainPageContainerClass" id="mainPageContainer" role="main">
+  <main id="mainPageContainer" role="main" class="clearfix mainPageContainerClass">
   </main>
 
-  <div class="footerContainerClass" id="footerParentContainer">
-    <div class="footerLinksContainerClass" id="footerContainer">
+  <div id="footerParentContainer"  class="footerContainerClass" >
+    <div id="footerContainer" class="footerLinksContainerClass">
     </div>
   </div>
+<div id="attch" style="height:500px; width: 500px;"></div>
+
+  <!-- loading base and GlobalData modules -->
+  <script src="js/Modules/Base/Base.js"></script>
+  <script src="js/Modules/Base/jquery-1.10.2.min.js"></script>
+  <script src="js/Modules/GlobalData/GlobalData_Sub.js"></script>
+  <script src="js/Modules/GlobalData/GlobalData.js"></script>
+
+  <!-- loading app core modules -->
+  <script src="js/Modules/Core/MainCore.js"></script>
+  <script src="js/Modules/Core/Logger.js"></script>
+  <script src="js/Modules/Core/Utitlities.js"></script>
+  <script src="js/Modules/Core/CookieHandler.js"></script>
+  <script src="js/Modules/Core/StorageHandler.js"></script>
+  <script src="js/Modules/Core/AjaxEngine.js"></script>
+  <script src="js/Modules/Core/NotificationHandler.js"></script>
+  <script src="js/Modules/SandBox/SandBox.js"></script>
+
+  <!-- loading app components -->
+  <script src="js/Components/ImagesInc_Header.js"></script>
+  <script src="js/Components/ImagesInc_Footer.js"></script>
+  <script src="js/Components/ImagesInc_Content.js"></script>
   
-  <script src="./js/Logger.js"></script>
-  <script src="./js/Modules.js"></script>
-  <script src="./js/Modules_2.js"></script>
-  <script src="./js/Modules_3.js"></script>
-  <script src="./js/AppTester.js"></script>
+  <script>
+    ImagesInc_Core.initializeAllModules();
+    ImagesInc_Core.initializeAllComponents();
+    ImagesInc_Core.handlePageChange(location.pathname);
+  </script>
 </body>
 </html>
