@@ -5,10 +5,10 @@ ImagesInc_Core.registerComponent('headerContainer', 'header', function (sandBox)
         sandBox.updateElement('headerContainer', ImagesInc_GlobalData.getHeaderHTMLTxt());
         sandBox.contextObj = this;
         this.registerForEvents();
-        sandBox.logMessaage(1, 'Header component has been initialied...', 'blue');
+        sandBox.logMessage(1, 'Header component has been initialied...', 'blue');
       }
       catch (e) {
-        sandBox.logMessaage(3, 'Header component has NOT been initialized correctly --> ' + e.message);
+        sandBox.logMessage(3, 'Header component has NOT been initialized correctly --> ' + e.message);
       }
     },
 
@@ -18,7 +18,7 @@ ImagesInc_Core.registerComponent('headerContainer', 'header', function (sandBox)
       if (removeComponent) {
         sandBox.removeComponentFromDom('headerContainer');
       }
-      sandBox.logMessaage(1, 'Header component has bee destroyed...', 'blue');
+      sandBox.logMessage(1, 'Header component has bee destroyed...', 'blue');
     },
 
     registerForEvents: function () {

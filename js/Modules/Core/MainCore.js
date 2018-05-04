@@ -800,7 +800,7 @@ var ImagesInc_Core = (function (Core) {
   // binding popstate event to getFromHistory method
   addEventHandlerToElem(window, 'popstate', getFromHistory);
 
-  Core.addEventHandlerToElem = addEventHandlerToElem;
+  Core.addEventHandlerToElement = addEventHandlerToElem;
   Core.removeEventHandlerFromElem = removeEventHandlerFromElem;
   Core.registerForCustomEvents = registerForCustomEvents;
   Core.publishCustomEvent = publishCustomEvent;
