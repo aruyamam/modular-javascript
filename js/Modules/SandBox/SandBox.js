@@ -79,6 +79,55 @@ var SandBox = function (Core, contextElem, componentSelector) {
       }
     },
 
+    addEventHandlerToParent: function (event, func) {
+      // since we don't have the parent of the parent, then we just do the norma event handling attachment
+      if (event && typeof event === 'string' && func && typeof func === 'function') {
+        Core.addEventHandlerToElement(containerElemContext, event, func);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.addEventHandlerToParent');
+      }
+    },
+
+    removeEventHandlerFromParent: function (event, func) {
+      if (event && typeof event === 'string' && func && typeof func === 'function') {
+        Core.removeEventHandlerFromElem(containerElemContext, event, func);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.addEventHandlerToElement');
+      }
+    },
+
+    removeEventHandlerFromElem: function (elementID, event, func) {
+      if (elementID && typeof elementID === 'string' && event && typeof event === 'string' && func && typeof func === 'function') {
+        // we do ths so we don't to traverse the whole DOM, thus increase perfromance
+        var childElem = Core.getChildOfParentByID(containerElemContext, elementID);
+
+        Core.removeEventHandlerFromElem(childElem, event, func);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.removeEventHandlerFromElem');
+      }
+    },
+
+    registerForCustomEvents: function (eventsObj) {
+      if (eventsObj && typeof eventsObj === 'object') {
+        Core.registerForCustomEvents(componentID, eventsObj);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.registerForCustomEvents');
+      }
+    },
+
+    publishCustomEvent: function (eventObj) {
+      if (eventObj && typeof eventObj === 'object') {
+        Core.publishCustomEvent(eventObj);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.publishCustomEvent');
+      }
+    },
+
 
 
     logMessage: function (severity, msg, color) {
