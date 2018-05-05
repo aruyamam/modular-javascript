@@ -58,7 +58,7 @@ var SandBox = function (Core, contextElem, componentSelector) {
     },
 
     loadPage: function (url) {
-      if (url && typof === 'string') {
+      if (url && typeof url === 'string') {
         Core.loadPage(url);
       }
       else {
@@ -88,6 +88,26 @@ var SandBox = function (Core, contextElem, componentSelector) {
       else {
         Core.log(3, 'incorrect parameters passed in from SandBox.logMessage');
       }
-    }
+    },
+
+
+    addToHistory: function (data) {
+      if (data && typeof data === 'object') {
+        Core.addToHistory(data);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.addToHitory');
+      }
+    },
+
+
+    getValueAsArrayFromCookie: function (cookieName) {
+      if (cookieName && typeof cookieName === 'string') {
+        return Core.getCookieValueAsArray(cookieName);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.getValueAsArrayFromCookie');
+      }
+    },
   };
 };

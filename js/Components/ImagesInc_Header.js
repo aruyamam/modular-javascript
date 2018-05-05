@@ -57,7 +57,7 @@ ImagesInc_Core.registerComponent('headerContainer', 'header', function (sandBox)
         type: 'favourites-Clicked',
         data: 'favourites'
       });
-      sandBox.addToHitory({
+      sandBox.addToHistory({
         url: 'fvourites' // update url in the browser
       });
     }

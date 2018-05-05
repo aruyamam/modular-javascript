@@ -6,8 +6,8 @@ var ImagesInc_Core = (function (mainCore) {
       fileLoadDelayTime = 300,
       timerCounter = 0,
       recursiveMaxCounter = 3,
-      LoadedComponentName,
-      LoadedComponentCallbackFunc;
+      loadedComponentName,
+      loadedComponentCallbackFunc;
 
   mainCore.registeredComponents = registeredComponents;
 
