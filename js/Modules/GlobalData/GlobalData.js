@@ -3,7 +3,7 @@ var ImagesInc_GlobalData = (function (module) {
       pageDefinitionsFile = 'PageDefinitions.js',
       pageDefinitionsFilePath = 'js/Modules/PageDefinitions/',
       FavouritesPageObjDefID = 'FavouritesPageDef',
-      NoficationWidgetDefID = 'NoficationWidgetDef';
+      NoficationWidgetDefID = 'NotificationWidgetDef';
 
   module.initialize = function () {
     console.log('GlobalData Module has been initialized');

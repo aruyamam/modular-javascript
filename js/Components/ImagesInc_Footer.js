@@ -2,7 +2,7 @@ ImagesInc_Core.registerComponent('footerContainer', 'footer', function (sandBox)
   return {
     init: function () {
       try {
-        sandBox.updateElemnt('footerContainer', ImagesInc_GlobalData.getFooterHMTLTxt());
+        sandBox.updateElement('footerContainer', ImagesInc_GlobalData.getFooterHTMLTxt());
         this.registerForEvents();
         sandBox.contextObj = this;
         sandBox.logMessage(1, 'Footer component has been initialized...', 'blue');

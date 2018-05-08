@@ -186,12 +186,12 @@ var ImagesInc_Core = (function (mainCore) {
 
   mainCore.loadComponent = function (ComponentDefID, callbackFunc) {
     // get the value of Component object definition from storage
-    var ComponentDef = mainCore.getValueForKeyAsObjectFromStrorage(ComponentDefID);
+    var ComponentDef = mainCore.getValueForKeyAsObjectFromStorage(ComponentDefID);
     loadedComponentCallbackFunc = callbackFunc;
 
     if (!ComponentDef) {
       // if Component definition is not in the storage then the page object definitions probably needs to be loaded
-      mainCore.loadPageDefinitionsFileAndCallBack(function () { mainCore.getComponentObjAndCallback(CompoenentDefID, mainCore.loadComponentFilesAndInitializeWithCallBack); });
+      mainCore.loadPageDefinitionsFileAndCallBack(function () { mainCore.getComponentObjAndCallback(ComponentDefID, mainCore.loadComponentFilesAndInitializeWithCallBack); });
     }
     else {
       mainCore.loadComponentFilesAndInitializeWithCallBack(ComponentDef);
@@ -200,7 +200,7 @@ var ImagesInc_Core = (function (mainCore) {
 
   mainCore.loadPageDefinitionsFileAndCallBack = function (callbackFunc) {
     var pageDefinitionFileName = ImagesInc_GlobalData.getPageDefinitionsFileName(),
-        pageDefinitionsFilePath = ImagesInc_GlobalData.getpageDefinitionsfilePath();
+        pageDefinitionsFilePath = ImagesInc_GlobalData.getPageDefinitionsFilePath();
 
     if (mainCore.Utilitizes &&
       mainCore.Utilitizes.Load_JS_CSS &&
@@ -227,7 +227,7 @@ var ImagesInc_Core = (function (mainCore) {
       }
   };
 
-  mainCore.getCompoenentObjAndCallback = function (componentObjID, callbackFunc) {
+  mainCore.getComponentObjAndCallback = function (componentObjID, callbackFunc) {
     try {
       // load Component object defitino from storage
       mainCore.loadPageDefinitionFromStorageAndCallBack(componentObjID, callbackFunc);
@@ -324,7 +324,7 @@ var ImagesInc_Core = (function (mainCore) {
 
   mainCore.loadPageDefinitions = function () {
     var pageDefinitionFileName = ImagesInc_GlobalData.getPageDefinitionsFileName(),
-        pageDefinitionsFilePath = ImagesInc_GlobalData.getpageDefinitionsfilePath();
+        pageDefinitionsFilePath = ImagesInc_GlobalData.getPageDefinitionsFilePath();
 
     if (mainCore.Utilitizes &&
         mainCore.Utilitizes.Load_JS_CSS &&
@@ -445,9 +445,8 @@ var ImagesInc_Core = (function (mainCore) {
   };
 
   mainCore.getValueForKeyAsObjectFromStorage = function (ObjName) {
-    if (mainCore.StorageHandler && mainCore.StorageHandler.getValueForKeyAsObjectFromStorage) {
-      return
-      mainCore.StorageHandler.getValueForKeyAsObjectFromStorage(ObjName);
+    if (mainCore.StorageHandler && mainCore.StorageHandler.getValueForKeyAsObject) {
+      return mainCore.StorageHandler.getValueForKeyAsObjectFromStorage(ObjName);
     }
     else {
       mainCore.log(
@@ -461,7 +460,7 @@ var ImagesInc_Core = (function (mainCore) {
     if (mainCore.StorageHandler &&
       mainCore.StorageHandler.saveValueToLocalStorage &&
       key && typeof key === 'string' && value) {
-      mainCore.StorageHandler.saveValueToLocalStorage(key, value, cookie);
+      mainCore.StorageHandler.saveValueToLocalStorage(key, value, encode);
     }
     else {
       mainCore.log(

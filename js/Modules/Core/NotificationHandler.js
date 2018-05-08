@@ -8,7 +8,7 @@ ImagesInc_Core.NotificationHandler = (function () {
   self.initialize = function () {
     this.id = 'Notification';
     ImagesInc_Core.registeredComponents.push(this);
-    ImagesInc_Core.log(1, 'HotificationHandler Module has been initialized...', 'blue');
+    ImagesInc_Core.log(1, 'NotificationHandler Module has been initialized...', 'blue');
   };
 
   // initialize as a component
@@ -30,7 +30,7 @@ ImagesInc_Core.NotificationHandler = (function () {
     NotificationWidgetObj = ImagesInc_Core.getComponentByID('notificationWidget');
 
     if (!NotificationWidgetObj) {
-      ImagesInc_Core.loadComponent(ImagesInc_GlobalData.getNotificationWidgetDefID(), self.renderWidget);
+      ImagesInc_Core.loadComponent(ImagesInc_GlobalData.getNoficationWidgetDefID(), self.renderWidget);
     }
     else {
       self.renderWidget();

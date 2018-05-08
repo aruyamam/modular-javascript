@@ -14,7 +14,7 @@
     cssPath: 'css/'
   };
 
-  ImagesInc_Core.saveValueToLocalStorage(ImagesInc_GlobalData.getNotificationWidgetDefID(), NotificationWidgetDefinition);
-  ImagesInc_Core.saveValueToLocalStorage(ImagesInc_Core.getNoficationWidgetDefID(), NotificationWidgetDefinition);
+  ImagesInc_Core.saveValueToLocalStorage(ImagesInc_GlobalData.getFavouritesPageObjDefID(), FavouritesPageDefinition);
+  ImagesInc_Core.saveValueToLocalStorage(ImagesInc_GlobalData.getNoficationWidgetDefID(), NotificationWidgetDefinition);
   
 })();

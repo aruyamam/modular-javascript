@@ -23,9 +23,9 @@ var ImagesInc_PageSections = (function (mainModule, subModule) {
 
   pageSections.footerContainerDefObj = {
     sectionHTML: `
-      <div><a href="#">Latest News</a></div>
-      <div><a href="#">Services</a></div>
-      <div><a href="#">Support</a></div>
+      <div id="latestNews"><a href="#">Latest News</a></div>
+      <div id="services"><a href="#">Services</a></div>
+      <div id="support"><a href="#">Support</a></div>
     ` 
   };
 

@@ -82,7 +82,7 @@ ImagesInc_Core.Utilitizes = (function () {
     }
   };
 
-  self.Remove_JS_CSS = function (filename, filetype) {
+  self.Remove_JS_CSS = function (fileName, fileType) {
     var foundFile;
     foundFile = this.getFileInHead(fileName, fileType);
 
