@@ -66,7 +66,23 @@ var SandBox = function (Core, contextElem, componentSelector) {
       }
     },
 
+    getParentNode: function (elem) {
+      if (elem && typeof elem === 'object') {
+        return Core.getParentNode(elem);
+      }
+      else {
+        Core.log(3, 'incorrect parameter passed in; from SandBox.getParentNode');
+      }
+    },
 
+    applyElementCSSClass: function (elementID, className) {
+      if (elementID && typeof elementID === 'string' && className && typeof className === 'string') {
+        Core.applyElementCSSClass(elementID, className);
+      }
+      else {
+      Core.log(3, 'incorrect parameters passed in; from SandBox.');
+      }
+    },
 
     addEventHandlerToElement: function (elementID, event, func) {
       if (elementID && typeof elementID === 'string' && event && typeof event === 'string' && func && typeof func === 'function') {
@@ -128,7 +144,23 @@ var SandBox = function (Core, contextElem, componentSelector) {
       }
     },
 
+    unregisterCustomEvent: function (eventType) {
+      if (eventType && typeof eventType === 'string') {
+        Core.unregisterCustomEvent(componentID, eventType);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.unregisterCustomEvent');
+      }
+    },
 
+    unregisterAllCustomEvents: function () {
+      if (Core.unregisterAllCustomEvents(componentID)) {
+        Core.log(1, 'All events for component ' + componentID + ' have been removed; from SandBox.unregisterAllCustomEvents');
+      }
+      else {
+        Core.log(2, 'No custom events found for ' + componentID + ' component; from SandBox.unregisterAllCustomEvents');
+      }
+    },
 
     logMessage: function (severity, msg, color) {
       if (severity && typeof severity === 'number' && msg && typeof msg === 'string') {
@@ -139,6 +171,32 @@ var SandBox = function (Core, contextElem, componentSelector) {
       }
     },
 
+    makeAjaxCall: function (apiURL, queryStr, method, callbackFunc) {
+      if (apiURL && typeof apiURL === 'string' && queryStr && typeof queryStr === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.makeAjaxCall(apiURL, queryStr, method, callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.makeAjaxCall');
+      }
+    },
+
+    loadPageByAjax: function (apiURL, queryStr, callbackFunc, page, method) {
+      if (apiURL && typeof apiURL === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.loadPageByAjax(apiURL, queryStr, callbackFunc, page, method);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadPageByAjax');
+      }
+    },
+
+    getJSONObj: function (apiURL, callbackFunc) {
+      if (apiURL && typeof apiURL === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.getJSONObj(apiURL, callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from Sandbox.getJSONObj');
+      }
+    },
 
     addToHistory: function (data) {
       if (data && typeof data === 'object') {
@@ -148,7 +206,24 @@ var SandBox = function (Core, contextElem, componentSelector) {
         Core.log(3, 'incorrect parameters passed in; from SandBox.addToHitory');
       }
     },
-
+    
+    populateCookie: function (cookieName, value) {
+      if (cookieName && typeof cookieName === 'string') {
+        Core.cookieHandler.populateCookie(cookieName, value);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.populateCookie');
+      }
+    },
+    
+    removeValueFromCookie: function (cookieName, value) {
+      if (cookieName && typeof cookieName === 'string' && value) {
+        Core.removeValueByValueFromCookie(cookieName, value);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.removeValueFromCookie');
+      }
+    },
 
     getValueAsArrayFromCookie: function (cookieName) {
       if (cookieName && typeof cookieName === 'string') {
@@ -158,5 +233,100 @@ var SandBox = function (Core, contextElem, componentSelector) {
         Core.log(3, 'incorrect parameters passed in; from SandBox.getValueAsArrayFromCookie');
       }
     },
+
+    loadPageDefinitinos: function () {
+      Core.loadPageDefinitinos();
+    },
+
+    loadFile: function (fileName, fileType, filePath) {
+      if (fineName && typeof fineName === 'string' && fileType && typeof fileType === 'string' && filePath && typeof filePath === 'string') 
+       {
+        return Core.loadFile(fileName, fileType, filePath); 
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadFile');
+      }
+    },
+
+    removeFile: function (fileName, fileType) {
+      if (fileName && typeof fileName === 'string' && fileType && typeof fileType === 'string') {
+        Core.removeFile(fileName, fileType);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.removeFile');
+      }
+    },
+
+    getValueForKeyAsObjectFromStorage: function (key, decode) {
+      if (key && typeof key === 'string') {
+        return Core.getValueForKeyAsObjectFromStorage(key, decode);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.getValueForKeyAsObjectFromStorage');
+      }
+    },
+    
+    setElementContext: function (elemID) {
+      if (elemID && typeof elemID === 'string') {
+        containerElemContext = Core.getElement(elemID);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.setElementContext');
+      }
+    },
+
+    loadPageDefinitionsFileAndCallBack: function (callbackFunc) {
+      if (callbackFunc && typeof callbackFunc === 'function') {
+        Core.loadPageDefinitionsFileAndCallBack(callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadPageDefinitionsFileAndCallBack');
+      }
+    },
+
+    getComponentObjAndCallback: function (favouritesPageDefID, callbackFunc) {
+      if (favouritesPageDefID && typeof favouritesPageDefID === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.getComponentObjAndCallback(favouritesPageDefID, callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.getComponentObjAndCallback');
+      }
+    },
+
+    loadComponent: function (componentID, callbackFunc) {
+      if (componentID && typeof componentID === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.loadComponent(componentID, callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadComponent');
+      }
+    },
+
+    loadJSfileFromObjAndCallBAck: function (fileName, filePath, callbackFunc) {
+      if (fileName && typeof fileName === 'string' && filePath && typeof filePath === 'string' && callbackFunc && typeof callbackFunc === 'function') {
+        Core.loadJSfileFromObjAndCallBAck(fileName, filePath, callbackFunc);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadJSfileFromObjAndCallBAck');
+      }
+    },
+
+    loadCSSfileFromObjDef: function (fineName, filePath) {
+      if (fileName && typeof fileName === 'string' && filePath && typeof filePath === 'string') {
+        Core.loadCSSfileFromObjDef(fineName, filePath);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadCSSfileFromObjDef');
+      }
+    },
+
+    createDocumentLevelComponent: function (widgetInnerHTMLStr) {
+      if (widgetInnerHTMLStr && typeof widgetInnerHTMLStr === 'string') {
+        return Core.createDocumentLevelComponent(widgetInnerHTMLStr);
+      }
+      else {
+        Core.log(3, 'incorrect parameters passed in; from SandBox.loadCSSfileFromObjDef');
+      }
+    }
   };
 };
